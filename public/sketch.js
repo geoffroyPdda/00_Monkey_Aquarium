@@ -28,11 +28,11 @@ function preload(){
 }
 
 function setup(){
-    createCanvas(2000, 1000);
+    createCanvas(windowWidth, windowHeight);
 
-    alignSlider = createSlider(0, 2, 1.5, 0.1);
-    cohesionSlider = createSlider(0, 2, 1, 0.1);
-    separationSlider = createSlider(0, 2, 2, 0.1);
+    alignSlider = document.getElementById('alignSlider');
+    cohesionSlider = document.getElementById('cohesionSlider');
+    separationSlider = document.getElementById('separationSlider');
 
     imageMode(CENTER);
 
@@ -42,6 +42,16 @@ function setup(){
 
     sprites.push(new Sprite(spriteSheets[0], 15, 4, 48, 43));
     gridSize = 10;
+    document.getElementById("togglePanelButton").addEventListener("click", function() {
+        var panel = document.getElementById("settingsPanel");
+        if (panel.style.right === "0px" || panel.style.right === "") {
+            panel.style.right = "-250px"; // Hide panel
+            this.textContent = "Show Panel"; // Update button text
+        } else {
+            panel.style.right = "0px"; // Show panel
+            this.textContent = "Hide Panel"; // Update button text
+        }
+    });
 }
 
 function draw(){
@@ -110,4 +120,8 @@ function sortMonkeys(){
 
 function mod(n, m) {
     return ((n % m) + m) % m;
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }
