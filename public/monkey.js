@@ -112,10 +112,10 @@ class Monkey{
         let alignment = this.align(monkeys);
         let cohesion = this.cohesion(monkeys);
         let separation = this.separation(monkeys);
-    
-        alignment.mult(alignSlider.value());
-        cohesion.mult(cohesionSlider.value());
-        separation.mult(separationSlider.value());
+
+        alignment.mult(parseFloat(alignSlider.value));
+        cohesion.mult(parseFloat(cohesionSlider.value));
+        separation.mult(parseFloat(separationSlider.value));
     
         this.acceleration.add(alignment);
         this.acceleration.add(cohesion);

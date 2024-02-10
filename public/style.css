@@ -1,8 +1,44 @@
 html, body {
-    margin: 0;
-    padding: 0;
-  }
-  canvas {
-    display: block;
-  }
-  
+  margin: 0;
+  padding: 0;
+  width: 100%;   /* Full width */
+  height: 100%;  /* Full height */
+  overflow: hidden; /* Hide scrollbars */
+}
+
+canvas {
+  display: block;
+  width: 100%;  /* Full width */
+  height: 100%; /* Full height */
+}
+
+/* sliders */
+#settingsPanel {
+  position: fixed;
+  right: -250px; /* Start off-screen */
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+#settingsPanel #sliders {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+#settingsPanel label {
+  padding: 5px;
+  font-weight: bold;
+}
+
+#togglePanelButton {
+  position: absolute;
+  top: 10px;
+  left: -100px;
+  transition: 0.5s;
+}
